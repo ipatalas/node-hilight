@@ -1,0 +1,29 @@
+{
+  "name": "hilight",
+  "version": "1.0.0",
+  "description": "Simple console highlighter",
+  "bin": "bin/highlight.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipatalas/node-hilight.git"
+  },
+  "keywords": [
+    "console",
+    "highlight",
+    "colors"
+  ],
+  "author": "Ireneusz Patalas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ipatalas/node-hilight/issues"
+  },
+  "homepage": "https://github.com/ipatalas/node-hilight#readme",
+  "preferGlobal": true,
+  "dependencies": {
+    "colors": "^1.1.2",
+    "split": "^1.0.0"
+  }
+}

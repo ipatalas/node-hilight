@@ -2,14 +2,14 @@
 This package means to be a simple console highligher. It can be used to hilight given words or expressions. It's compatible with pipes, so one can easily pipe log output to it and highlight some part of it.
 For example the following command parses a log file to find durations for all MySQL calls:
 ```sh
-cat logfile.log | grep MySQL | hilight "duration: \d+"
+cat logfile.log | grep MySQL | hili "duration: \d+"
 ```
 
 # Installation
 
 This is a CLI tool, so one should install it globbally using the following command:
 ```sh
-npm install hilight -g
+npm install hili -g
 ```
 
 # Features

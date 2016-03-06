@@ -1,5 +1,5 @@
 {
-  "name": "hilight",
+  "name": "hili",
   "version": "1.0.0",
   "description": "Simple console highlighter",
   "bin": "bin/highlight.js",

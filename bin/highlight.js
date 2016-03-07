@@ -1,28 +1,27 @@
-const util = require('util');
-const color = require('colors');
-const split = require("split");
-const Transform = require('stream').Transform;
+#!/usr/bin/env node
 
-util.inherits(HighlightWords, Transform);
+'use strict';
 
-var regex = process.argv[2] || null;
+const split = require('split');
+const program = require('commander');
+const HighlightExpression = require('../lib/expression');
+
+program
+	.version(require('../package.json').version)
+	.usage('[options] <search_string>')
+	.option('-p, --plain-text', 'Switch off RegExp matching')
+	.parse(process.argv);
+	
+if (!program.args.length) {
+	return program.help();
+}
+
+var search_string = program.args[0];
 
 process.stdin.setEncoding("utf8");
 
 process.stdin
-	.pipe(split())
-	.pipe(new HighlightWords({ regex: regex }))
+	.pipe(split(null, null, { trailing: false }))
+	.pipe(new HighlightExpression({ expression: search_string, plain: program.plainText }))
 	.pipe(process.stdout);
 
-function HighlightWords(options) {
-	Transform.call(this, { "objectMode": true });
-	
-	this._regex = options.regex;
-}
-
-HighlightWords.prototype._transform = function (line, encoding, callback) {
-  if (this._regex) {
-	line = line.replace(this._regex, m => m.yellow);
-  }
-  callback(null, line + "\n");
-};
